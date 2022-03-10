@@ -7,17 +7,35 @@
 }
 
 .cont1{
-  margin-top: 100px;
   text-align: center;
   /* border: 1px solid red; */
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.textdiv{
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .cont1 h1{
   font-family: 'Work Sans';
-  margin-bottom: 100px;
   font-size: 72px;
+  width: fit-content;
   color: rgba(142, 124, 106, 1);
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 3px solid #8E7C6A; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  margin-bottom: 100px;
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite 
 
+}
+
+.cont11{
+  opacity: 0;
 }
 
 
@@ -27,7 +45,7 @@
   margin-top: 200px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   /* border: 1px solid black; */
 }
 
@@ -35,6 +53,7 @@
   font-family: 'Space Grotesk';
   font-size: 64px;
   width: 60%;
+  /* opacity: 0; */
   /* border: 1px solid yellow; */
   /* margin-bottom: 60px; */
 }
@@ -60,7 +79,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-left: 80px;
+  /* opacity: 0; */
+  /* margin-left: 80px; */
+  /* visibility: hidden; */
 }
 
 .span{
@@ -120,6 +141,61 @@
   display: flex;
   flex-direction: row;
   margin-top: 60px;
+  justify-content: space-evenly;
+  /* border: 1px solid green; */
+}
+
+.cont4left{
+  width: 40%;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cont4left p{
+  width: 350px;
+  font-family: 'Space Grotesk';
+  font-size: 14px;
+}
+
+.cont4right{
+  /* width: 40%; */
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+.span3{
+  width: 250px;
+  border-bottom: 1px solid black;
+  /* margin: 0 auto; */
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.cont4bot{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 30px;
+  font-family: 'Space Grotesk';
+}
+
+.cont4bot h4{
+  font-size: 18px;
+}
+
+.cont4bot p{
+  font-size: 12px;
+}
+
+.span4{
+  width: 84px;
+  border-bottom: 1px solid black;
+  /* margin: 0 auto; */
+  margin-top: 20px;
+  margin-bottom: 7px;
 }
 
 
@@ -128,9 +204,120 @@
 .cont5{
   display: flex;
   flex-direction: row;
+  margin: 0 auto;
+  margin-top: 300px;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+  width: 60%;
 }
 
-.cont6 div{
+.cont51, .cont52, .cont53{
+  width: 243px;
+  /* border: 1px solid red; */
+  text-align: center;
+  margin-left: 2%;
+  margin-right: 2%;
+  transition: all .5s ease-in-out;
+  cursor: pointer;
+}
+
+.cont51:hover, .cont52:hover, .cont53:hover{
+  transform: scale(1.2);
+}
+
+.cont5bot{
+  font-family: 'Space Grotesk';
+  /* border: 1px solid yellow; */
+  width: fit-content;
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 35px;
+}
+
+.cont5bot h4{
+  font-size: 18px;
+}
+
+.cont5bot p{
+  font-size: 12px;
+}
+
+.span5{
+  width: 84px;
+  border-bottom: 1px solid black;
+  /* margin: 0 auto; */
+  margin-top: 20px;
+  margin-bottom: 7px;
+}
+
+
+/* Container 6 CSS styles */
+.cont6{
+  margin-top: 200px;
+  text-align: center;
+}
+
+.cont6 h1{
+  font-size: 48px;
+  font-family: 'Space Grotesk';
+}
+
+.cont61{
   display: flex;
   flex-direction: row;
+  width: fit-content;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  margin-top: 100px;
 }
+
+
+/* Container 7 CSS styles */
+.cont7{
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.cont7 h1{
+  margin-bottom: 150px;
+  font-size: 48px;
+  font-family: 'Space Grotesk';
+}
+
+@media only screen and (max-width: 800px) {
+  .cont2right{
+    width: 40%;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 80px;
+  }
+}
+
+
+/* The typing effect */
+@keyframes typewriter {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blinkTextCursor {
+  from, to { border-color: transparent }
+  50% { border-color: #8E7C6A; }
+}
+
+/* .cont2{
+  position: relative;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.cont2.active{
+  transform: translateY(0);
+  opacity: 1;
+} */

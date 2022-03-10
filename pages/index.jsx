@@ -13,8 +13,64 @@ import Cont53 from "../public/cont53.png";
 import Cont61 from "../public/cont61.png";
 import Cont62 from "../public/cont62.png";
 import Cont7 from "../public/cont7.png";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap/dist/gsap";
+import { useIntersection } from "react-use";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  let app = useRef(null);
+  let image = useRef(null);
+  let content = useRef(null);
+
+  var tl = gsap.timeline();
+
+  useEffect(() => {
+    //IMage Vars
+    const testimage = image.firstElementChild;
+
+    // Content Vars
+    const headLineFirst = content.children[0];
+    console.log(headLineFirst);
+
+    gsap.to(app, {
+      duration: 1,
+      opacity: 1,
+      ease: "power4.in",
+    });
+
+    tl.from(image, { duration: 1.2, y: 0, ease: "power4.in" }).from(
+      testimage,
+      {
+        duration: 2,
+        scale: 1.2,
+        ease: "power4.out",
+      },
+      0.2
+    );
+
+    // Content test
+    // gsap.to(content, {
+    //   duration: 0,
+    //   visibility: "visible",
+    // });
+
+    gsap.from(headLineFirst, {
+      duration: 1.5,
+      xPercent: 50,
+      opacity: 0,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: headLineFirst,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+  });
+
   return (
     <div className={styles.container}>
       <Head>
@@ -24,16 +80,22 @@ export default function Home() {
       </Head>
       {/* Container 1 */}
       <div className={styles.cont1}>
-        <h1>This SUMMER is for legs</h1>
-        <Image src={Cont11} />
+        <div className={styles.textdiv}>
+          <h1>This SUMMER is for legs</h1>
+        </div>
+        <div className={styles.cont11} ref={(el) => (app = el)}>
+          <div ref={(el) => (image = el)}>
+            <Image src={Cont11} />
+          </div>
+        </div>
       </div>
       {/* Container 2 */}
       <div className={styles.cont2}>
         <div className={styles.cont2left}>
           <Image src={Cont2} />
         </div>
-        <div className={styles.cont2right}>
-          <h1>FEFIRE: Statment for days</h1>
+        <div className={styles.cont2right} ref={(el) => (content = el)}>
+          <h1>FEFEFIRE: Statment for days</h1>
           <div>
             <div className={styles.span}></div>
             <p>
@@ -71,55 +133,61 @@ export default function Home() {
       </div>
       {/* Container 4 */}
       <div className={styles.cont4}>
-        <div>
-          <span></span>
+        <div className={styles.cont4left}>
+          <div className={styles.span3}></div>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper
             cursus sagittis aliquam sed mattis. Rhoncus purus molestie rhoncus
             tellus.Lorem ipsum Ullamcorper cursus sagittis aliquam sed mattis.
           </p>
-          <span></span>
+          <div className={styles.span3}></div>
         </div>
-        <div>
+        <div className={styles.cont4right}>
           <Image src={Cont4} />
+          <div className={styles.cont4bot}>
+            <h4>Red Berry</h4>
+            <div className={styles.span4}></div>
+            <p>$200.9</p>
+          </div>
         </div>
       </div>
       {/* Container 5 */}
       <div className={styles.cont5}>
-        <div>
+        <div className={styles.cont51}>
           <div>
             <Image src={Cont32} />
           </div>
-          <div>
+          <div className={styles.cont5bot}>
             <h4>Gray Polly</h4>
-            <span></span>
+            <div className={styles.span5}></div>
             <p>$200.9</p>
           </div>
         </div>
-        <div>
+        <div className={styles.cont52}>
           <div>
             <Image src={Cont52} />
           </div>
-          <div>
+          <div className={styles.cont5bot}>
             <h4>Gray Polly</h4>
-            <span></span>
+            <div className={styles.span5}></div>
             <p>$200.9</p>
           </div>
         </div>
-        <div>
+        <div className={styles.cont53}>
           <div>
             <Image src={Cont53} />
           </div>
-          <div>
+          <div className={styles.cont5bot}>
             <h4>Gray Polly</h4>
-            <span></span>
+            <div className={styles.span5}></div>
             <p>$200.9</p>
           </div>
         </div>
       </div>
+      {/* Container 6 */}
       <div className={styles.cont6}>
         <h1>The Cotton Quality✨</h1>
-        <div>
+        <div className={styles.cont61}>
           <Image src={Cont61} />
           <Image src={Cont62} />
         </div>
