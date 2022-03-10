@@ -97,7 +97,7 @@ export default function Home() {
 
     // Cont7
     gsap.from(cont7, {
-      duration: 1.5,
+      duration: 2,
       width: "0%",
       opacity: 0,
       ease: "power4.out",
