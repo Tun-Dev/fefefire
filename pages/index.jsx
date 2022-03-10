@@ -23,7 +23,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
   let app = useRef(null);
   let image = useRef(null);
-  let content = useRef(null);
+  let cont2 = useRef(null);
+  let cont7 = useRef(null);
 
   var tl = gsap.timeline();
 
@@ -32,38 +33,76 @@ export default function Home() {
     const testimage = image.firstElementChild;
 
     // Content Vars
-    const headLineFirst = content.children[0];
-    console.log(headLineFirst);
-
-    gsap.to(app, {
-      duration: 1,
-      opacity: 1,
-      ease: "power4.in",
-    });
+    const pic1 = cont2.children[0];
+    const word1 = cont2.children[1].children[0];
+    const span1 = cont2.children[1].children[1];
+    console.log(span1);
+    // console.log(headLineFirst);
 
     tl.from(image, { duration: 1.2, y: 0, ease: "power4.in" }).from(
       testimage,
       {
+        y: 100,
         duration: 2,
-        scale: 1.2,
+        scale: 1.5,
+        opacity: 0,
         ease: "power4.out",
       },
       0.2
     );
 
-    // Content test
-    // gsap.to(content, {
-    //   duration: 0,
-    //   visibility: "visible",
-    // });
+    // Pic 1 Animation
+    gsap.from(pic1, {
+      duration: 1.5,
+      xPercent: -50,
+      opacity: 0,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: pic1,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
 
-    gsap.from(headLineFirst, {
+    // Word animation
+    gsap.from(word1, {
       duration: 1.5,
       xPercent: 50,
       opacity: 0,
       ease: "power4.out",
+      delay: 0.5,
       scrollTrigger: {
-        trigger: headLineFirst,
+        trigger: word1,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+
+    // Span Animation
+    gsap.from(span1, {
+      duration: 1.5,
+      y: -30,
+      opacity: 0,
+      ease: "power4.out",
+      delay: 0.8,
+      scrollTrigger: {
+        trigger: word1,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+
+    // Cont7
+    gsap.from(cont7, {
+      duration: 1.5,
+      width: "0%",
+      opacity: 0,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: cont7,
         start: "top center",
         toggleActions: "play none none reverse",
         // markers: true,
@@ -90,11 +129,11 @@ export default function Home() {
         </div>
       </div>
       {/* Container 2 */}
-      <div className={styles.cont2}>
+      <div className={styles.cont2} ref={(el) => (cont2 = el)}>
         <div className={styles.cont2left}>
           <Image src={Cont2} />
         </div>
-        <div className={styles.cont2right} ref={(el) => (content = el)}>
+        <div className={styles.cont2right}>
           <h1>FEFEFIRE: Statment for days</h1>
           <div>
             <div className={styles.span}></div>
@@ -195,7 +234,9 @@ export default function Home() {
       {/* Container 7 */}
       <div className={styles.cont7}>
         <h1>All New Arrivals🛬</h1>
-        <Image src={Cont7} />
+        <div ref={(el) => (cont7 = el)}>
+          <Image src={Cont7} />
+        </div>
       </div>
     </div>
   );
