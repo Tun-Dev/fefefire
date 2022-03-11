@@ -16,6 +16,7 @@ import Cont7 from "../public/cont7.png";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { useIntersection } from "react-use";
+// import { Power2 } from "gsap/all";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -25,8 +26,18 @@ export default function Home() {
   let image = useRef(null);
   let cont2 = useRef(null);
   let cont7 = useRef(null);
+  let cont3 = useRef(null);
+  // let img =
+  // let gray = useRef(null);
 
   var tl = gsap.timeline();
+
+  // var tll = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: cont3,
+  //     toggleActions: "restart none none reset",
+  //   },
+  // });
 
   useEffect(() => {
     //IMage Vars
@@ -36,7 +47,9 @@ export default function Home() {
     const pic1 = cont2.children[0];
     const word1 = cont2.children[1].children[0];
     const span1 = cont2.children[1].children[1];
-    console.log(span1);
+    // const gray1 = gray.children[0];
+    // console.log(gray);
+    // console.log(gray1);
     // console.log(headLineFirst);
 
     tl.from(image, { duration: 1.2, y: 0, ease: "power4.in" }).from(
@@ -108,6 +121,77 @@ export default function Home() {
         // markers: true,
       },
     });
+
+    let revealContainers = document.querySelectorAll(".grayreveal");
+
+    revealContainers.forEach((container) => {
+      let image = container.querySelector(".cont31img");
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: cont3,
+          start: "top center",
+          toggleActions: "play none none reverse",
+          markers: true,
+        },
+      });
+      tl.set(container, { autoAlpha: 1 });
+      tl.from(container, 1.5, {
+        yPercent: 100,
+        ease: "Power2.out",
+      });
+      tl.from(image, 1.5, {
+        yPercent: -100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: "Power2.out",
+      });
+    });
+
+    // Cont31
+    // tl.set(gray, { autoAlpha: 1 });
+    // tl.from(gray, {
+    //   duration: 1.5,
+    //   xPercent: -100,
+    //   ease: "power4.out",
+    //   scrollTrigger: {
+    //     trigger: gray,
+    //     toggleActions: "restart none none reset",
+    //   },
+    // });
+    // tl.from(gray1, {
+    //   duration: 1.5,
+    //   xPercent: 100,
+    //   scale: 1.3,
+    //   delay: -1.5,
+    //   ease: "power4.out",
+    //   scrollTrigger: {
+    //     trigger: gray,
+    //     toggleActions: "restart none none reset",
+    //   },
+    // });
+    // tl.set(gray, { autoAlpha: 1 });
+    // tl.from(gray, {
+    //   duration: 1.5,
+    //   yPercent: 100,
+    //   ease: "Power2.out",
+    //   scrollTrigger: {
+    //     trigger: gray,
+    //     start: "top center",
+    //     toggleActions: "restart none none reset",
+    //   },
+    // });
+    // tl.from(gray1, {
+    //   duration: 1.5,
+    //   yPercent: -100,
+    //   scale: 1.3,
+    //   delay: -1.5,
+    //   ease: "Power2.out",
+    //   scrollTrigger: {
+    //     trigger: gray,
+    //     start: "top center",
+    //     toggleActions: "restart none none reset",
+    //   },
+    // });
   });
 
   return (
@@ -148,10 +232,12 @@ export default function Home() {
         </div>
       </div>
       {/* Container 3 */}
-      <div className={styles.cont3}>
+      <div className={styles.cont3} ref={(el) => (cont3 = el)}>
         <div className={styles.cont31}>
-          <div>
-            <Image src={Cont31} />
+          <div className="grayreveal">
+            <div className="cont31img">
+              <Image src={Cont31} />
+            </div>
           </div>
           <div className={styles.cont3bot}>
             <h4>Gray Polly</h4>
@@ -160,8 +246,10 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.cont32}>
-          <div>
-            <Image src={Cont32} />
+          <div className="grayreveal">
+            <div className="cont31img">
+              <Image src={Cont32} />
+            </div>
           </div>
           <div className={styles.cont3bot}>
             <h4>Red Berry</h4>

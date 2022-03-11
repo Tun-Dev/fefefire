@@ -53,6 +53,25 @@ nav{
   /* border: 1px solid yellow; */
 }
 
+.cont31img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform-origin: bottom;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+}
+
+.grayreveal{
+  visibility: hidden;
+  position: relative;
+  /* width: 80%; */
+  /* height: 80%; */
+  /* max-width: 500px; */
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+
 footer{
   height: 250px;
   /* border: 1px solid red; */
