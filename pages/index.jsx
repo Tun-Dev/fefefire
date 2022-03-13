@@ -27,6 +27,11 @@ export default function Home() {
   let cont2 = useRef(null);
   let cont7 = useRef(null);
   let cont3 = useRef(null);
+  let cont4 = useRef(null);
+  let cont4span = useRef(null);
+  let cont4span1 = useRef(null);
+  let cont4word = useRef(null);
+  let cont4pic = useRef(null);
   // let img =
   // let gray = useRef(null);
 
@@ -96,12 +101,92 @@ export default function Home() {
     // Span Animation
     gsap.from(span1, {
       duration: 1.5,
-      y: -30,
+      y: -100,
       opacity: 0,
       ease: "power4.out",
-      delay: 0.8,
+      delay: 1,
       scrollTrigger: {
         trigger: word1,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+
+    // Cont3 animations
+    let revealContainers = document.querySelectorAll(".grayreveal");
+
+    revealContainers.forEach((container) => {
+      let image = container.querySelector(".cont31img");
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: cont3,
+          start: "top center",
+          toggleActions: "play none none reverse",
+          // markers: true,
+        },
+      });
+      tl.set(container, { autoAlpha: 1 });
+      tl.from(container, {
+        duration: 1.5,
+        yPercent: 100,
+        ease: "Power2.out",
+      });
+      tl.from(image, {
+        duration: 1.5,
+        yPercent: -100,
+        scale: 1.3,
+        delay: -1.5,
+        ease: "Power2.out",
+      });
+    });
+
+    // Cont4 animation
+    gsap.from(cont4span, {
+      duration: 1.5,
+      scaleX: 0,
+      delay: 0.5,
+      transformOrigin: "right center",
+      scrollTrigger: {
+        trigger: cont4,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+    gsap.from(cont4span1, {
+      duration: 1.5,
+      scaleX: 0,
+      delay: 0.5,
+      transformOrigin: "left center",
+      scrollTrigger: {
+        trigger: cont4,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+
+    gsap.from(cont4word, {
+      opacity: 0,
+      delay: 0.5,
+      duration: 1,
+      y: -30,
+      scrollTrigger: {
+        trigger: cont4,
+        start: "top center",
+        toggleActions: "play none none reverse",
+        // markers: true,
+      },
+    });
+
+    gsap.from(cont4pic, {
+      duration: 1.5,
+      xPercent: 50,
+      opacity: 0,
+      ease: "Back.easeOut",
+      scrollTrigger: {
+        trigger: cont4,
         start: "top center",
         toggleActions: "play none none reverse",
         // markers: true,
@@ -121,77 +206,6 @@ export default function Home() {
         // markers: true,
       },
     });
-
-    let revealContainers = document.querySelectorAll(".grayreveal");
-
-    revealContainers.forEach((container) => {
-      let image = container.querySelector(".cont31img");
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: cont3,
-          start: "top center",
-          toggleActions: "play none none reverse",
-          markers: true,
-        },
-      });
-      tl.set(container, { autoAlpha: 1 });
-      tl.from(container, 1.5, {
-        yPercent: 100,
-        ease: "Power2.out",
-      });
-      tl.from(image, 1.5, {
-        yPercent: -100,
-        scale: 1.3,
-        delay: -1.5,
-        ease: "Power2.out",
-      });
-    });
-
-    // Cont31
-    // tl.set(gray, { autoAlpha: 1 });
-    // tl.from(gray, {
-    //   duration: 1.5,
-    //   xPercent: -100,
-    //   ease: "power4.out",
-    //   scrollTrigger: {
-    //     trigger: gray,
-    //     toggleActions: "restart none none reset",
-    //   },
-    // });
-    // tl.from(gray1, {
-    //   duration: 1.5,
-    //   xPercent: 100,
-    //   scale: 1.3,
-    //   delay: -1.5,
-    //   ease: "power4.out",
-    //   scrollTrigger: {
-    //     trigger: gray,
-    //     toggleActions: "restart none none reset",
-    //   },
-    // });
-    // tl.set(gray, { autoAlpha: 1 });
-    // tl.from(gray, {
-    //   duration: 1.5,
-    //   yPercent: 100,
-    //   ease: "Power2.out",
-    //   scrollTrigger: {
-    //     trigger: gray,
-    //     start: "top center",
-    //     toggleActions: "restart none none reset",
-    //   },
-    // });
-    // tl.from(gray1, {
-    //   duration: 1.5,
-    //   yPercent: -100,
-    //   scale: 1.3,
-    //   delay: -1.5,
-    //   ease: "Power2.out",
-    //   scrollTrigger: {
-    //     trigger: gray,
-    //     start: "top center",
-    //     toggleActions: "restart none none reset",
-    //   },
-    // });
   });
 
   return (
@@ -259,17 +273,17 @@ export default function Home() {
         </div>
       </div>
       {/* Container 4 */}
-      <div className={styles.cont4}>
+      <div className={styles.cont4} ref={(el) => (cont4 = el)}>
         <div className={styles.cont4left}>
-          <div className={styles.span3}></div>
-          <p>
+          <div className={styles.span3} ref={(el) => (cont4span = el)}></div>
+          <p ref={(el) => (cont4word = el)}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ullamcorper
             cursus sagittis aliquam sed mattis. Rhoncus purus molestie rhoncus
             tellus.Lorem ipsum Ullamcorper cursus sagittis aliquam sed mattis.
           </p>
-          <div className={styles.span3}></div>
+          <div className={styles.span3} ref={(el) => (cont4span1 = el)}></div>
         </div>
-        <div className={styles.cont4right}>
+        <div className={styles.cont4right} ref={(el) => (cont4pic = el)}>
           <Image src={Cont4} />
           <div className={styles.cont4bot}>
             <h4>Red Berry</h4>

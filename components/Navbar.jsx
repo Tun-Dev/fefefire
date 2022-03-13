@@ -18,7 +18,7 @@ const Navbar = () => {
       // yoyo: true,
       opacity: 0,
       ease: "back",
-      duration: 1.5,
+      duration: 2,
     });
   });
   return (

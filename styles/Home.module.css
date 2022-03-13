@@ -160,6 +160,7 @@
   width: 350px;
   font-family: 'Space Grotesk';
   font-size: 14px;
+  /* visibility: hidden; */
 }
 
 .cont4right{
@@ -170,7 +171,7 @@
 
 .span3{
   width: 250px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   /* margin: 0 auto; */
   margin-top: 40px;
   margin-bottom: 40px;
