@@ -278,11 +278,13 @@
 
 /* Container 7 CSS styles */
 .cont7 {
-  margin-top: 200px;
+  margin-top: 300px;
+  /* margin-bottom: 300px; */
   text-align: center;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   /* border: 1px solid red; */
+  height: 600px;
 }
 
 .cont7 h1 {
@@ -296,7 +298,6 @@
   width: 100%;
   /* height: 278px; */
   position: relative;
-  margin-bottom: 150px;
 }
 
 @media only screen and (max-width: 1200px) {
