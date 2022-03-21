@@ -16,6 +16,7 @@ import Fefelogo from "./Fefefire.svg";
 import IG from "./ig.svg";
 import FB from "./fb.svg";
 import Twitter from "./twitter.svg";
+import FefeLogoBlue from "./FefefireBlue.svg";
 
 export {
   Cont2,
@@ -36,4 +37,5 @@ export {
   IG,
   FB,
   Twitter,
+  FefeLogoBlue,
 };

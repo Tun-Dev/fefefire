@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Fefelogo, IG, FB, Twitter } from "../public";
+import { FefeLogoBlue, IG, FB, Twitter } from "../public";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 
@@ -31,33 +31,9 @@ const Footer = () => {
         <Image src={Twitter} />
         <Image src={IG} />
       </div>
-      {/* <div>
-        <div>
-          <h1>
-            Designed by{" "}
-            <a
-              href="https://oghenetega.disha.page/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Oghenetega
-            </a>
-          </h1>
-          <h1>
-            Developed by{" "}
-            <a
-              href="http://twitter.com/tunzdev"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ZOD.jsx
-            </a>
-          </h1>
-        </div>
-      </div> */}
       <div className="ftwords">
         <p>reachfefefire@enquries.com</p>
-        <Image src={Fefelogo} />
+        <Image src={FefeLogoBlue} />
       </div>
     </footer>
   );

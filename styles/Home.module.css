@@ -24,7 +24,8 @@
   font-family: "Work Sans";
   font-size: 72px;
   width: fit-content;
-  color: rgba(142, 124, 106, 1);
+  color: #0d2529;
+  /* color: rgba(142, 124, 106, 1);2 */
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 3px solid #8e7c6a; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
@@ -52,6 +53,7 @@
   font-family: "Space Grotesk";
   font-size: 64px;
   width: 60%;
+  color: #2f3851;
   /* opacity: 0; */
   /* border: 1px solid yellow; */
   /* margin-bottom: 60px; */
@@ -61,6 +63,7 @@
   font-family: "Space Grotesk";
   font-size: 14px;
   width: 350px;
+  color: #2f3851;
 }
 
 .cont2left {
@@ -83,7 +86,7 @@
 
 .span {
   width: 290px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(47, 56, 81, 0.73);
   margin: 0 auto;
   margin-top: 60px;
   margin-bottom: 60px;
@@ -116,15 +119,17 @@
 .cont3bot h4 {
   font-size: 18px;
   margin-top: 35px;
+  color: rgba(47, 56, 81, 0.73);
 }
 
 .cont3bot p {
   font-size: 12px;
+  color: rgba(47, 56, 81, 0.73);
 }
 
 .span2 {
   width: 84px;
-  border-bottom: 1px solid black;
+  border-bottom: 0.5px solid rgba(47, 56, 81, 0.73);
   /* margin: 0 auto; */
   margin-top: 20px;
   margin-bottom: 7px;
@@ -152,6 +157,7 @@
   width: 350px;
   font-family: "Space Grotesk";
   font-size: 14px;
+  color: rgba(47, 56, 81, 1);
   /* visibility: hidden; */
 }
 
@@ -166,7 +172,7 @@
 
 .span3 {
   width: 250px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(47, 56, 81, 0.73);
   /* margin: 0 auto; */
   margin-top: 40px;
   margin-bottom: 40px;
@@ -182,15 +188,17 @@
 
 .cont4bot h4 {
   font-size: 18px;
+  color: rgba(47, 56, 81, 1);
 }
 
 .cont4bot p {
   font-size: 12px;
+  color: rgba(47, 56, 81, 1);
 }
 
 .span4 {
   width: 84px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(47, 56, 81, 0.73);
   /* margin: 0 auto; */
   margin-top: 20px;
   margin-bottom: 7px;
@@ -237,16 +245,17 @@
 
 .cont5bot h4 {
   font-size: 18px;
+  color: rgba(47, 56, 81, 1);
 }
 
 .cont5bot p {
   font-size: 12px;
+  color: rgba(47, 56, 81, 1);
 }
 
 .span5 {
   width: 84px;
-  border-bottom: 1px solid black;
-  /* margin: 0 auto; */
+  border-bottom: 1px solid rgba(47, 56, 81, 0.73);
   margin-top: 20px;
   margin-bottom: 7px;
 }
@@ -260,6 +269,7 @@
 .cont6 h1 {
   font-size: 48px;
   font-family: "Space Grotesk";
+  color: rgba(47, 56, 81, 1);
 }
 
 .cont61 {
@@ -291,6 +301,7 @@
   margin-bottom: 150px;
   font-size: 48px;
   font-family: "Space Grotesk";
+  color: rgba(47, 56, 81, 1);
 }
 
 .cont7 div {
